@@ -24,8 +24,10 @@ class RoomProvider extends Component {
 
   getData = async () => {
     try {
+      // sorting from: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/search-parameters/order/query-entries/console/js
       let response = await Client.getEntries({
-        content_type: "beachResortRoom"
+        content_type: "beachResortRoom",
+        order: "fields.price"
       });
       // let rooms = this.formatData(items);
       let rooms = this.formatData(response.items);
