@@ -11,7 +11,6 @@ function RoomContainer({ context }) {
   }
   return (
     <div>
-      RoomContainer
       <RoomFilter rooms={rooms} />
       <RoomList rooms={sortedRooms} />
     </div>

@@ -7,6 +7,10 @@ const getUnique = (items, value) => {
   return [...new Set(items.map(item => item[value]))];
 };
 
+function sortNumber(a, b) {
+  return a - b;
+}
+
 export default function RoomsFilter({ rooms }) {
   const context = useContext(RoomContext);
   console.log(context);
@@ -35,7 +39,7 @@ export default function RoomsFilter({ rooms }) {
     );
   });
 
-  let people = getUnique(rooms, "capacity");
+  let people = getUnique(rooms, "capacity").sort(sortNumber);
   people = people.map((item, index) => {
     return (
       <option key={index} value={item}>
